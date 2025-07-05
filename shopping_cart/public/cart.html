@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>カート - オンラインショップ</title>
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/cart.css" />
+    </head>
+    <body>
+        <header>
+            <h1>カート</h1>
+        </header>
+
+        <nav>
+            <button id="back-to-products" class="secondary-btn">
+                商品一覧に戻る
+            </button>
+        </nav>
+
+        <main>
+            <div id="cart-empty" class="empty-message" style="display: none">
+                <h2>カートは空です</h2>
+                <p>商品一覧から商品を選んでカートに追加してください。</p>
+                <button
+                    onclick="location.href='index.html'"
+                    class="primary-btn"
+                >
+                    商品一覧を見る
+                </button>
+            </div>
+
+            <div id="cart-content" style="display: none">
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>商品名</th>
+                            <th>価格</th>
+                            <th>数量</th>
+                            <th>小計</th>
+                            <th>削除</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        <!-- カート内商品がJavaScriptで挿入される -->
+                    </tbody>
+                </table>
+
+                <div class="cart-summary">
+                    <div class="total-section">
+                        <span class="total-label">合計金額:</span>
+                        <span id="total-amount" class="total-amount">¥0</span>
+                    </div>
+
+                    <div class="cart-actions">
+                        <button id="clear-cart" class="danger-btn">
+                            カートを空にする
+                        </button>
+                        <button id="proceed-checkout" class="primary-btn">
+                            購入手続きへ進む
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- カート機能を先に読み込み -->
+        <script src="js/cart.js"></script>
+        <script src="js/cart-page.js"></script>
+    </body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>購入履歴 - オンラインショップ</title>
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/history.css" />
+    </head>
+    <body>
+        <header>
+            <h1>購入履歴</h1>
+        </header>
+
+        <nav>
+            <button id="back-to-products" class="secondary-btn">
+                商品一覧に戻る
+            </button>
+        </nav>
+
+        <main>
+            <div class="history-container">
+                <!-- 検索・絞り込みフィルター -->
+                <div class="filter-section">
+                    <h2>絞り込み検索</h2>
+                    <div class="filter-form">
+                        <div class="filter-row">
+                            <div class="filter-group">
+                                <label for="date-from">注文日（開始）</label>
+                                <input
+                                    type="date"
+                                    id="date-from"
+                                    name="date_from"
+                                />
+                            </div>
+                            <div class="filter-group">
+                                <label for="date-to">注文日（終了）</label>
+                                <input
+                                    type="date"
+                                    id="date-to"
+                                    name="date_to"
+                                />
+                            </div>
+                        </div>
+                        <div class="filter-row">
+                            <div class="filter-group">
+                                <label for="amount-from">金額（最小）</label>
+                                <input
+                                    type="number"
+                                    id="amount-from"
+                                    name="amount_from"
+                                    min="0"
+                                    placeholder="0"
+                                />
+                            </div>
+                            <div class="filter-group">
+                                <label for="amount-to">金額（最大）</label>
+                                <input
+                                    type="number"
+                                    id="amount-to"
+                                    name="amount_to"
+                                    min="0"
+                                    placeholder="999999"
+                                />
+                            </div>
+                        </div>
+                        <div class="filter-row">
+                            <div class="filter-group">
+                                <label for="status">ステータス</label>
+                                <select id="status" name="status">
+                                    <option value="">すべて</option>
+                                    <option value="pending">処理中</option>
+                                    <option value="confirmed">確定</option>
+                                    <option value="shipped">発送済み</option>
+                                    <option value="delivered">配達完了</option>
+                                    <option value="cancelled">
+                                        キャンセル
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="filter-actions">
+                                <button id="search-btn" class="primary-btn">
+                                    検索
+                                </button>
+                                <button id="reset-btn" class="secondary-btn">
+                                    リセット
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ローディング表示 -->
+                <div id="loading" class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>購入履歴を読み込み中...</p>
+                </div>
+
+                <!-- エラー表示 -->
+                <div
+                    id="error-message"
+                    class="error-container"
+                    style="display: none"
+                >
+                    <div class="error-icon">⚠️</div>
+                    <h2>購入履歴の取得に失敗しました</h2>
+                    <p>
+                        申し訳ございませんが、購入履歴を表示できませんでした。
+                    </p>
+                    <button id="retry-btn" class="primary-btn">再試行</button>
+                </div>
+
+                <!-- 履歴なし表示 -->
+                <div
+                    id="no-history"
+                    class="empty-container"
+                    style="display: none"
+                >
+                    <div class="empty-icon">📦</div>
+                    <h2>購入履歴がありません</h2>
+                    <p>まだ商品を購入されていません。</p>
+                    <button
+                        onclick="location.href='index.html'"
+                        class="primary-btn"
+                    >
+                        商品を見る
+                    </button>
+                </div>
+
+                <!-- 購入履歴一覧 -->
+                <div id="history-content" style="display: none">
+                    <div class="history-header">
+                        <h2>購入履歴一覧</h2>
+                        <div class="history-summary">
+                            <span id="total-count">0</span>件の注文履歴
+                        </div>
+                    </div>
+
+                    <div class="history-list" id="history-list">
+                        <!-- 履歴アイテムがJavaScriptで挿入される -->
+                    </div>
+
+                    <!-- ページネーション -->
+                    <div
+                        class="pagination"
+                        id="pagination"
+                        style="display: none"
+                    >
+                        <button id="prev-page" class="page-btn" disabled>
+                            前へ
+                        </button>
+                        <div class="page-numbers" id="page-numbers">
+                            <!-- ページ番号がJavaScriptで挿入される -->
+                        </div>
+                        <button id="next-page" class="page-btn" disabled>
+                            次へ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="js/history.js"></script>
+    </body>
+</html>

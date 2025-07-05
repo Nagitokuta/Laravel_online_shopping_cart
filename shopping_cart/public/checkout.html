@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>購入手続き - オンラインショップ</title>
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/checkout.css" />
+    </head>
+    <body>
+        <header>
+            <h1>購入手続き</h1>
+        </header>
+
+        <main>
+            <div class="checkout-container">
+                <!-- 購入者情報入力フォーム -->
+                <section class="customer-info">
+                    <h2>お客様情報</h2>
+                    <form id="checkout-form">
+                        <div class="form-group">
+                            <label for="name"
+                                >氏名 <span class="required">*</span></label
+                            >
+                            <input type="text" id="name" name="name" required />
+                            <span class="error-message" id="name-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address"
+                                >配送先住所
+                                <span class="required">*</span></label
+                            >
+                            <input
+                                type="text"
+                                id="address"
+                                name="address"
+                                required
+                            />
+                            <span
+                                class="error-message"
+                                id="address-error"
+                            ></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone"
+                                >電話番号 <span class="required">*</span></label
+                            >
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                required
+                            />
+                            <span class="error-message" id="phone-error"></span>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- 購入内容確認 -->
+                <section class="order-summary">
+                    <h2>購入内容確認</h2>
+                    <div id="loading-cart" class="loading">
+                        カート情報を読み込み中...
+                    </div>
+                    <div id="cart-summary" style="display: none">
+                        <div class="cart-items" id="cart-items-list">
+                            <!-- カート内商品がJavaScriptで表示されます -->
+                        </div>
+                        <div class="total-section">
+                            <div class="total-row">
+                                <span class="total-label">合計金額:</span>
+                                <span id="total-amount" class="total-amount"
+                                    >¥0</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        id="empty-cart"
+                        class="empty-message"
+                        style="display: none"
+                    >
+                        <p>
+                            カートが空です。商品を追加してから購入手続きを行ってください。
+                        </p>
+                        <button
+                            onclick="location.href='index.html'"
+                            class="secondary-btn"
+                        >
+                            商品一覧に戻る
+                        </button>
+                    </div>
+                </section>
+
+                <!-- アクションボタン -->
+                <section class="checkout-actions">
+                    <button
+                        type="button"
+                        id="back-to-cart"
+                        class="secondary-btn"
+                    >
+                        カートに戻る
+                    </button>
+                    <button
+                        type="button"
+                        id="confirm-purchase"
+                        class="primary-btn"
+                    >
+                        購入確定
+                    </button>
+                </section>
+            </div>
+        </main>
+
+        <!-- カート機能とチェックアウト機能を読み込み -->
+        <script src="js/cart.js"></script>
+        <script src="js/checkout.js"></script>
+    </body>
+</html>

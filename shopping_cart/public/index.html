@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>オンラインショップ - 商品一覧</title>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body>
+        <header>
+            <h1>オンラインショップ - 商品一覧</h1>
+        </header>
+        <nav>
+            <button id="cart-btn">カートを見る</button>
+        </nav>
+        <main>
+            <div id="loading">商品を読み込み中...</div>
+            <table id="product-table" style="display: none">
+                <thead>
+                    <tr>
+                        <th>商品名</th>
+                        <th>価格</th>
+                        <th>在庫</th>
+                        <th>カートに追加</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list">
+                    <!-- ここに商品一覧がJavaScriptで挿入される -->
+                </tbody>
+            </table>
+        </main>
+        <footer>
+            <button onclick="location.href='history.html'">
+                購入履歴を見る
+            </button>
+        </footer>
+
+        <!-- カート機能を先に読み込み -->
+        <script src="js/cart.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

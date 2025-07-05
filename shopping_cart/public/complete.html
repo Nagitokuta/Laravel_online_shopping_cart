@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>購入完了 - オンラインショップ</title>
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/complete.css" />
+    </head>
+    <body>
+        <header>
+            <h1>ご購入ありがとうございました！</h1>
+        </header>
+
+        <main>
+            <div class="complete-container">
+                <!-- ローディング表示 -->
+                <div id="loading" class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>注文情報を読み込み中...</p>
+                </div>
+
+                <!-- エラー表示 -->
+                <div
+                    id="error-message"
+                    class="error-container"
+                    style="display: none"
+                >
+                    <div class="error-icon">⚠️</div>
+                    <h2>注文情報の取得に失敗しました</h2>
+                    <p>
+                        申し訳ございませんが、注文情報を表示できませんでした。
+                    </p>
+                    <p>
+                        お手数ですが、カスタマーサポートまでお問い合わせください。
+                    </p>
+                    <div class="error-actions">
+                        <button
+                            onclick="location.href='index.html'"
+                            class="primary-btn"
+                        >
+                            商品一覧に戻る
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 購入完了内容 -->
+                <div
+                    id="order-details"
+                    class="order-complete"
+                    style="display: none"
+                >
+                    <!-- 成功アイコンとメッセージ -->
+                    <div class="success-header">
+                        <div class="success-icon">✅</div>
+                        <h2>ご注文を承りました</h2>
+                        <p class="success-message">
+                            ご購入いただき、誠にありがとうございます。
+                        </p>
+                    </div>
+
+                    <!-- 注文情報 -->
+                    <div class="order-info">
+                        <h3>ご注文情報</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">ご注文番号</span>
+                                <span id="order-number" class="info-value"
+                                    >-</span
+                                >
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">ご注文日時</span>
+                                <span id="order-date" class="info-value"
+                                    >-</span
+                                >
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">お名前</span>
+                                <span id="customer-name" class="info-value"
+                                    >-</span
+                                >
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">配送先住所</span>
+                                <span id="delivery-address" class="info-value"
+                                    >-</span
+                                >
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">電話番号</span>
+                                <span id="phone-number" class="info-value"
+                                    >-</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 購入商品一覧 -->
+                    <div class="order-items">
+                        <h3>ご購入商品</h3>
+                        <div class="items-list" id="items-list">
+                            <!-- 商品アイテムがJavaScriptで挿入される -->
+                        </div>
+                        <div class="total-section">
+                            <div class="total-row">
+                                <span class="total-label">合計金額</span>
+                                <span id="total-amount" class="total-amount"
+                                    >¥0</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 次のステップ案内 -->
+                    <div class="next-steps">
+                        <h3>今後の流れ</h3>
+                        <div class="steps-list">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>ご注文確認メール送信</h4>
+                                    <p>
+                                        ご登録のメールアドレスに確認メールをお送りします。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>商品の準備・発送</h4>
+                                    <p>1-3営業日以内に商品を発送いたします。</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>商品のお届け</h4>
+                                    <p>発送から1-2日でお手元にお届けします。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- アクションボタン -->
+                    <div class="action-buttons">
+                        <button
+                            onclick="location.href='index.html'"
+                            class="secondary-btn"
+                        >
+                            商品一覧に戻る
+                        </button>
+                        <button
+                            onclick="location.href='history.html'"
+                            class="primary-btn"
+                        >
+                            購入履歴を見る
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="js/complete.js"></script>
+    </body>
+</html>
